@@ -1,13 +1,20 @@
-
 import './App.css';
 import HomePage from "./page/homePage"
-import Directory from "./components/directory/Directory"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+
 
 function App() {
   return (
     <div className="App">
-      APP COMPONENT
-      <HomePage />
+      <Router >
+        <Switch>
+
+          <Route exact path="/" component={HomePage} />   {/*зарезервировали адрес / за компонентом Home*/}
+          <Route exact path="/hats">   </Route>   {/*зарезервировали адрес / за компонентом Home*/}
+        </Switch>
+      </Router>
+
     </div>
   );
 }

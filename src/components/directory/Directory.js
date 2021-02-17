@@ -4,7 +4,8 @@ import { data } from "../../data.js"
 import Menuitem from "../menu-item/Menu-item";
 
 
-const Directory = () => {
+const Directory = ({ history }) => {
+
     const [state, setState] = useState(data)
     console.log(state)
     return <div className="directory-menu">
