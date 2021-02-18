@@ -5,13 +5,13 @@ import CollectionPreview from '../../components/collection-preview/collection-pr
 const ShopPage = () => {
 
     const [state, setState] = useState(shopData)
-    console.log("ShopPage", state)
+    console.log("ShopPage_shopData", state)
 
     return <div className="shop-page">
 
-        {state.map(({ id, ...collection }) => {
-            console.log("ShopPage", state)
-            return <CollectionPreview key={id} {...collection} />
+        {state.map((shopDataItem) => {
+            console.log("ShopPage_mappingState", shopDataItem)
+            return <CollectionPreview key={shopDataItem.id} {...shopDataItem} />
         }
 
         )}

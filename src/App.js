@@ -1,18 +1,41 @@
+import React, { useState, useEffect } from "react";
 import './App.css';
-import HomePage from "./page/homePage"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import ShopPage from "./page/shop/shop"
+import ShopPage from "./page/shop/shopPage"
+import HomePage from "./page/home/homePage"
+import SignPage from "./page/sign/signPage"
+import Header from "./components/header/Header"
+import { auth } from "./firebase/firebase.utils"
+
+
 
 
 function App() {
+
+  const [state, setState] = useState({ currentUser: null })
+  let unsubscribeFromAuth = null
+
+  useEffect(() => {
+    console.log("App_useEffect")
+
+    unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      setState({ currentUser: user })
+      console.log("App_useEffect", user)
+    });
+
+
+  }, [])
+
+
   return (
     <div className="App">
-
+      {console.log("App_return")}
       <Router >
+        <Header currentUser={state.currentUser} />
         <Switch>
           <Route exact path="/" component={HomePage} />   {/*зарезервировали адрес / за компонентом Home*/}
-          <Route exact path="/hats">   </Route>   {/*зарезервировали адрес / за компонентом Home*/}
-          <ShopPage exact path="/shop" component={ShopPage}  >   </ShopPage>   {/*зарезервировали адрес / за компонентом ShopPage*/}
+          <Route path="/shop" component={ShopPage} />     {/*зарезервировали адрес / за компонентом ShopPage*/}
+          <Route path="/signin" component={SignPage} />
         </Switch>
       </Router>
 

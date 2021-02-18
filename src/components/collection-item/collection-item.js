@@ -3,7 +3,7 @@ import "./collection-item.scss"
 
 
 const CollectionItem = ({ name, price, imageUrl }) => {
-    console.log(imageUrl)
+    // console.log("CollectionItem", imageUrl)
     let style = {
         backgroundImage: `url(${imageUrl})`,
     }
@@ -12,7 +12,7 @@ const CollectionItem = ({ name, price, imageUrl }) => {
         <div className="image" style={style} >  </div>
         <div className="collection-footer">
             <span className="name">   {name}   </span>
-            <span className="price">  {price}  </span>
+            <span className="price">  ${price}  </span>
         </div>
     </div>
 }

@@ -4,8 +4,8 @@ import CollectionItem from "../collection-item/collection-item";
 
 
 const CollectionPreview = ({ title, items }) => {
-    console.log("CollectionPreview", items)
-    console.log("CollectionPreview", title)
+    // console.log("CollectionPreview", items)
+    // console.log("CollectionPreview", title)
 
     return (
         <div className="collection-preview">
