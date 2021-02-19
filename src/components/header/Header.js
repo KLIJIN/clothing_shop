@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./Header.scss";
+import CartIcon from "../cart-icon/cart-icon";
+import CartDropdown from "../cart-dropdown/cart-dropdown"
 
 import { auth } from "../../firebase/firebase.utils"
 import { ReactComponent as Logo } from "../../assets/images/4.3 crown.svg"
 
 
 
-const Header = ({ currentUser }) => {
-    console.log("`Header`", currentUser)
+const Header = ({ currentUser, hidden }) => {
+    console.log("`Header`", currentUser, hidden)
+
     return (
         <div className="header">
             <Link to="/" className="logo-container"> <Logo className="logo" /> </Link>
@@ -22,9 +25,13 @@ const Header = ({ currentUser }) => {
                     currentUser
                         ? <div className="option" onClick={() => auth.signOut()}  > sign out      </div>
                         : <Link className="option" to="/signin" >sign in</Link>
-
                 }
+                <CartIcon />
             </div>
+            {  !hidden && <CartDropdown />}
+            {/* {  !hidden ? <CartDropdown /> : null} */}
+            {/* Если False   ?  рисуем     имначе null */}
+
         </div>
     )
 }
@@ -32,7 +39,10 @@ const Header = ({ currentUser }) => {
 
 const mapStateToProps = (state) => {
 
-    return { currentUser: state.user.currentUser }
+    return {
+        currentUser: state.userR.currentUser,
+        hidden: state.cartR.hidden,
+    }
 
 }
 

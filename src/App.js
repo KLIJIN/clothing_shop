@@ -66,9 +66,9 @@ function App({ setCurrentUser, currentUser }) {
 }
 
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = (state) => {
 
-  return { currentUser: user.currentUser }
+  return { currentUser: state.userR.currentUser }
 
 }
 

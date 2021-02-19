@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
 import userReducer from "./user/userReducer.js" // первый редьюсер
-
+import cartReducer from "./cart/cartReducer.js" // второй редьюсер
 
 const rootReducer = combineReducers({
-    user: userReducer //дальше могли бы быть другие редьюсеры: Card2, Card3, Card4 ...
+    userR: userReducer,
+    cartR: cartReducer,
 });
 
 

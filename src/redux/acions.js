@@ -1,7 +1,5 @@
 export const SET_CURRENT_USER = "SET_CURRENT_USER"
-
-
-
+export const TOGGLE_CART_DROPDOWN = "TOGGLE_CART_DROPDOWN"
 
 
 export const setCurrentUserAction = (user) => ({
@@ -9,8 +7,9 @@ export const setCurrentUserAction = (user) => ({
     payload: user,
 })
 
-
-
+export const toggleCartHidden = () => ({
+    type: TOGGLE_CART_DROPDOWN,
+})
 
 
 
