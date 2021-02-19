@@ -4,6 +4,7 @@ import "./forminput.scss"
 
 
 const FormInput = ({ handleChange, label, ...state }) => {
+
     return (
         <div className="group" >
             <input className="form-input" onChange={handleChange}  {...state} />
