@@ -9,7 +9,6 @@ const middlewares = [logger]
 const store = createStore(rootReducer, applyMiddleware(...middlewares))
 
 
-
 const currentState = store.getState()
 console.log(currentState)  // выведет состояние стора.
 

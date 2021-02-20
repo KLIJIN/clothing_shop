@@ -9,7 +9,7 @@ import SignPage from "./page/sign/signPage"
 import Header from "./components/header/Header"
 
 import { auth, app } from "./firebase/firebase.utils"
-import { setCurrentUserAction } from "./redux/acions.js"
+import { setCurrentUserAction } from "./redux/actions.js"
 
 
 function App({ setCurrentUser, currentUser }) {
