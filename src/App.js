@@ -6,10 +6,16 @@ import { connect } from "react-redux";
 import ShopPage from "./page/shop/shopPage"
 import HomePage from "./page/home/homePage"
 import SignPage from "./page/sign/signPage"
+import CheckoutPage from "./page/checkout/checkoutPage"
+
 import Header from "./components/header/Header"
 
 import { auth, app } from "./firebase/firebase.utils"
 import { setCurrentUserAction } from "./redux/actions.js"
+
+
+import { selectcurrentUser } from "./redux/userSelector"
+
 
 
 function App({ setCurrentUser, currentUser }) {
@@ -58,6 +64,7 @@ function App({ setCurrentUser, currentUser }) {
           <Route path="/shop" component={ShopPage} />     {/*зарезервировали адрес / за компонентом ShopPage*/}
           {/* <Route path="/signin" component={SignPage} /> */}
           <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignPage />)} />
+          <Route path="/checkout" component={CheckoutPage} />
         </Switch>
       </Router>
 
@@ -67,8 +74,9 @@ function App({ setCurrentUser, currentUser }) {
 
 
 const mapStateToProps = (state) => {
-
-  return { currentUser: state.userR.currentUser }
+  return {
+    currentUser: selectcurrentUser(state)
+  }
 
 }
 

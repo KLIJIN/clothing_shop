@@ -1,5 +1,5 @@
-import { TOGGLE_CART_DROPDOWN, ADD_ITEM } from "../actions"
-import { addItemToCart } from "./cartUtils"
+import { TOGGLE_CART_DROPDOWN, ADD_ITEM, DECREASE_ITEM, REMOVE_ITEM } from "../actions"
+import { addItem, decreaseItem, } from "./cartUtils"
 
 
 
@@ -20,12 +20,28 @@ const cartReducer = (state = initialState, action) => {
             }
 
         case ADD_ITEM:
+
             console.log(ADD_ITEM, action.type)
             return {
                 ...state,
-                cartItems: addItemToCart(state.cartItems, action.payload)
+                cartItems: addItem(state.cartItems, action.payload)
             }
 
+        case DECREASE_ITEM:
+
+            console.log(DECREASE_ITEM, action.type)
+
+            return {
+                ...state,
+                cartItems: decreaseItem(state.cartItems, action.payload)
+            }
+
+        case REMOVE_ITEM:
+            console.log(REMOVE_ITEM, action.type)
+            return {
+                ...state,
+                cartItems: state.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
+            }
 
 
         default:
