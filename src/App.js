@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import ShopPage from "./page/shop/shopPage"
 import HomePage from "./page/home/homePage"
 import SignPage from "./page/sign/signPage"
+import ErrorPage from "./page/error/errorPage"
 import CheckoutPage from "./page/checkout/checkoutPage"
 
 import Header from "./components/header/Header"
@@ -19,7 +20,7 @@ import { selectcurrentUser } from "./redux/userSelector"
 
 
 function App({ setCurrentUser, currentUser }) {
-
+  //  /* "homepage": "http://KLIJIN.github.io/clothing_shop", */
   console.log(currentUser)
   let unsubscribeFromAuth = null
 
@@ -54,6 +55,7 @@ function App({ setCurrentUser, currentUser }) {
           {/* <Route path="/signin" component={SignPage} /> */}
           <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignPage />)} />
           <Route path="/checkout" component={CheckoutPage} />
+          <Route path="*"> <ErrorPage /> </Route>
         </Switch>
       </Router>
 
