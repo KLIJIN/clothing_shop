@@ -9,7 +9,7 @@ import { addItemAction } from "../../redux/actions"
 
 const CollectionItem = ({ item, addItemFunc }) => {
 
-    const { id, name, price, imageUrl } = item;
+    const { name, price, imageUrl } = item;
 
     let style = {
         backgroundImage: `url(${imageUrl})`,

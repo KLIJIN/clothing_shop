@@ -22,15 +22,9 @@ function App({ setCurrentUser, currentUser }) {
 
   console.log(currentUser)
   let unsubscribeFromAuth = null
-  // let signupFunct = (email, password) => {
-  //   return auth.createUserWithEmailAndPassword(email, password)
-  // }
 
   useEffect(() => {
     // const { setCurrentUser } = props
-
-    console.log("App_useEffect")
-
     unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
       if (userAuth) {
@@ -46,12 +40,7 @@ function App({ setCurrentUser, currentUser }) {
 
       setCurrentUser(userAuth);
     });
-
-
   }, [])
-
-
-
 
 
   return (
