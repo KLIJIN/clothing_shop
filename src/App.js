@@ -51,7 +51,8 @@ function App({ setCurrentUser, currentUser }) {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />   {/*зарезервировали адрес / за компонентом Home*/}
-          <Route exact path="/clothing_shop" component={HomePage} />
+          <Redirect exact from="/clothing_shop" to="/" />
+          {/* <Route exact path="/clothing_shop" component={HomePage} /> */}
           <Route path="/shop" component={ShopPage} />
           {/* <Route path="/signin" component={SignPage} /> */}
           <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignPage />)} />
