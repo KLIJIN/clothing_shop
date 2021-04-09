@@ -1,4 +1,4 @@
-## Небольшое spa в виде Kanban Dashboard
+## Прототип многостраничного магазина одежды.
 
-###реализованно с помощью **react, redux, react-beautiful-dnd, SCSS**
+###реализованно с помощью **react, redux, react-router, reselect, redux-logger, redux-persist, firebase, SCSS**
 ###ссылка на GitHub Pages --> https://github.com/KLIJIN/clothing_shop
