@@ -8,16 +8,17 @@ import { selectCollectionsForPreview } from "../../redux/shop/shopSelector"
 
 
 const CollectionsOverview = ({ collections }) => {
+    //Страница шопа отрисовывающая коллекции
 
     console.log("CollectionsOverview -->", collections)
     return (
-        <div className="collections-overview">
+        <div div className="collections-overview" >
             {
                 collections.map((shopDataItem) => {
                     return <CollectionPreview key={shopDataItem.id} {...shopDataItem} />
                 })
             }
-        </div>
+        </div >
     )
 }
 

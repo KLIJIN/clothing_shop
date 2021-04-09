@@ -9,7 +9,7 @@ import Menuitem from "../menu-item/Menu-item";
 const Directory = () => {
 
     const sectionsProps = useSelector(state => state.directoryR.sections);
-    // console.log("Directory2 -->", sectionsProps);
+    // console.log("Directory -->", sectionsProps);
 
     return <div className="directory-menu">
         {sectionsProps.map(item => <Menuitem key={item.id} {...item} />)}

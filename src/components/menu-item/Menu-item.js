@@ -1,9 +1,13 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
+import { useSelector } from "react-redux";
+
 import "./Menu-item.scss";
 
 
+
 const Menuitem = ({ title, imageUrl, linkUrl, size, history, match }) => {
+
     let style = {
         backgroundImage: `url(${imageUrl})`,
     }

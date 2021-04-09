@@ -8,7 +8,7 @@ import { addItemAction } from "../../redux/actions"
 
 
 const CollectionItem = ({ item, addItemFunc }) => {
-
+    //страница каждого отдельного товара
     const { name, price, imageUrl } = item;
 
     let style = {

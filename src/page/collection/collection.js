@@ -8,16 +8,19 @@ import CollectionItem from "../../components/collection-item/collection-item"
 
 //страница каждой отдельной коллекции
 const CollectionPage = ({ match, collection }) => {
+
     const { title, items } = collection;
-    console.log("CollectionPage", match.params?.collectionID)
-    console.log("CollectionPage -->", collection)
+    // console.log("CollectionPage", match.params?.collectionID)
+    // console.log("CollectionPage -->", collection)
 
     return (
         <div className="collection-page">
+
             <h2 className="title" > {title} </h2>
             <div className="items" >
                 {
                     items.map(item => (
+                        //компонент каждого отдельного товара
                         <CollectionItem key={item.id} item={item} />
                     ))
                 }

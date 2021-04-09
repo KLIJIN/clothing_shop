@@ -19,7 +19,7 @@ import { selectcurrentUser } from "./redux/userSelector"
 
 function App({ setCurrentUser, currentUser }) {
   //  /* "homepage": "http://KLIJIN.github.io/clothing_shop", */
-  console.log(currentUser)
+  // console.log(currentUser)
   let unsubscribeFromAuth = null
 
   useEffect(() => {
@@ -44,7 +44,6 @@ function App({ setCurrentUser, currentUser }) {
 
   return (
     <div className="App">
-      {/* {console.log("App_return")} */}
       <Router >
         <Header />
         <Switch>
