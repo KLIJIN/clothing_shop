@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import "./checkoutPage.scss"
 
 import { selectCartItems, selectCartTotal } from "../../redux/cartSelector"
@@ -8,7 +9,9 @@ import StripeCheckoutButton from "../../components/stripe-button/stripe-button"
 
 
 
-const CheckoutPage = ({ cartItemsProps, totalvalueProps }) => {
+const CheckoutPage = ({ totalvalueProps }) => {
+
+    const CartItems = useSelector(state => state.cartR.cartItems);
 
     return (
         <div className="checkout-page">
@@ -21,7 +24,7 @@ const CheckoutPage = ({ cartItemsProps, totalvalueProps }) => {
             </div>
 
             {
-                cartItemsProps.map(cartItem => {
+                CartItems.map(cartItem => {
                     return <CheckoutItem key={cartItem.id} cartItem={cartItem} />
                 })
             }
@@ -42,7 +45,6 @@ const CheckoutPage = ({ cartItemsProps, totalvalueProps }) => {
 const mapStateToProps = (state) => {
 
     return {
-        cartItemsProps: selectCartItems(state),
         totalvalueProps: selectCartTotal(state),
     }
 }

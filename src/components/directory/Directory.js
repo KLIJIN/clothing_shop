@@ -1,33 +1,22 @@
 import React, { useState } from "react";
 import "./Directory.scss";
 import { data } from "../../data.js"
+import { useSelector } from "react-redux";
 import Menuitem from "../menu-item/Menu-item";
-import { connect } from 'react-redux'
-import { selectDirectorySections } from "../../redux/directrory/directorySelector"
 
-const Directory = ({ sectionsProps }) => {
 
-    // const [state, setState] = useState(data)
+//Directory - меню  с категориями товаров
+const Directory = () => {
 
-    // console.log("Directory", state)
-    console.log("Directory", sectionsProps)
+    const sectionsProps = useSelector(state => state.directoryR.sections);
+    // console.log("Directory2 -->", sectionsProps);
+
     return <div className="directory-menu">
-        {
-            // state.map((item) => (
-            //     <Menuitem key={item.id} {...item} />
-            // ))
-            sectionsProps.map((item) => (
-                <Menuitem key={item.id} {...item} />
-            ))
-        }
+        {sectionsProps.map(item => <Menuitem key={item.id} {...item} />)}
     </div>
 }
 
-const mapStateToProps = (state) => {
-    return (
-        { sectionsProps: selectDirectorySections(state) }
-    )
-}
 
 
-export default connect(mapStateToProps)(Directory);
+
+export default Directory;

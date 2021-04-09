@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from "react-redux";
-
-import ShopPage from "./page/shop/shopPage"
+//pages
 import HomePage from "./page/home/homePage"
+import ShopPage from "./page/shop/shopPage"
 import SignPage from "./page/sign/signPage"
 import ErrorPage from "./page/error/errorPage"
 import CheckoutPage from "./page/checkout/checkoutPage"
-
+//components
 import Header from "./components/header/Header"
-
+//utils
 import { auth, app } from "./firebase/firebase.utils"
 import { setCurrentUserAction } from "./redux/actions.js"
-
-
 import { selectcurrentUser } from "./redux/userSelector"
 
 
@@ -51,8 +49,6 @@ function App({ setCurrentUser, currentUser }) {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />   {/*зарезервировали адрес / за компонентом Home*/}
-          <Redirect exact from="/clothing_shop" to="/" />
-          {/* <Route exact path="/clothing_shop" component={HomePage} /> */}
           <Route path="/shop" component={ShopPage} />
           {/* <Route path="/signin" component={SignPage} /> */}
           <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignPage />)} />

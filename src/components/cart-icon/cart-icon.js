@@ -9,22 +9,13 @@ import { selectCartItemsCount } from "../../redux/cartSelector.js"
 const CartIcon = ({ toggleCartHiddenFunc, itemCountProps }) => {
 
     return (
-        <div className="cart-icon" onClick={toggleCartHiddenFunc}    >
+        <div className="cart-icon" onClick={toggleCartHiddenFunc} >
             <ShoppingIcon className="shopping-icon" />
-            <span className="item-count"   > {itemCountProps} </span>
+            <span className="item-count" > {itemCountProps} </span>
         </div>
     )
 }
 
-
-
-
-// const mapStateToProps = (state) => {
-//     const { cartR: { cartItems } } = state
-//     return {
-//         itemCountProps: cartItems.reduce((accumaltedQuantity, cartItem) => accumaltedQuantity + cartItem.quantity, 0)
-//     }
-// }
 
 const mapStateToProps = (state) => {
 

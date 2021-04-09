@@ -1,6 +1,7 @@
 import React from "react";
-import "./Menu-item.scss";
 import { withRouter } from 'react-router-dom';
+import "./Menu-item.scss";
+
 
 const Menuitem = ({ title, imageUrl, linkUrl, size, history, match }) => {
     let style = {
@@ -12,7 +13,6 @@ const Menuitem = ({ title, imageUrl, linkUrl, size, history, match }) => {
     // console.log(url.length)
     // console.log(linkUrl)
     return (
-
         <div className={`menu-item ${size ? "large" : ""}`} onClick={() => history.push(`${url.length < 2 ? url : url + "/"}${linkUrl}`)} >
             <div className="background-image" style={style} />
             <div className="content">
